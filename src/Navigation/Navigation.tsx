@@ -42,7 +42,6 @@ const Tab = createBottomTabNavigator();
           marginHorizontal: 0,
           height: 80,
           position: "absolute",
-          bottom: 20,
           backgroundColor: dark ? Colors.darkSilver : Colors.whiteSilver,
           elevation: 5,
           borderTopColor: "#0296E5",

@@ -111,8 +111,8 @@ const Search = () => {
                   .randomDelay()
                   .reduceMotion(ReduceMotion.Never)}
                 layout={LinearTransition.duration(1200)}
-                contentContainerClassName="flex flex-col pb-[480px]"
-                columnWrapperClassName="flex flex-row mb-5 gap-12 items-center w-[100%] justify-center"
+                contentContainerClassName="flex flex-col pb-[480px] gap-3"
+              columnWrapperClassName="flex flex-row mb-5 items-center w-[100%] justify-between px-5"
                 numColumns={3}
                 renderItem={({ item }: { item: any }) => (
                   <AnimatedPressable

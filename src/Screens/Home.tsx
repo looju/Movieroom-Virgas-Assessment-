@@ -15,6 +15,7 @@ import CategoriesList from "../Components/CategoriesList";
 import MovieGrid from "./MovieGrid";
 import { AnimatedThemedSafeArea } from "../Components/AnimatedComponents";
 import { useMovies, usePopularMovies } from "../Hooks/useMovies";
+import { LoadingView } from "../Components/Loaders";
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("Now playing");
@@ -68,7 +69,7 @@ export default function Home() {
         />
         <MovieGrid movies={movies} />
       </View>
-      {/* <Modal isVisible={isLoading || moviesLoading}>{LoadingView()}</Modal> */}
+      <Modal isVisible={isLoading || moviesLoading} backdropOpacity={0.95}>{LoadingView()}</Modal>
     </AnimatedThemedSafeArea>
   );
 }
