@@ -14,16 +14,34 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 import { QueryClientProvider,QueryClient } from '@tanstack/react-query';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
   const queryClient = new QueryClient();
+  const RootStack = createStackNavigator();
 
   return (
     <SafeAreaProvider>
       <QueryClientProvider client={queryClient}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
+     <NavigationContainer>
+  <RootStack.Navigator
+          initialRouteName="index"
+          screenOptions={{
+            headerTitleAlign: 'center',
+            headerStyle: {
+              backgroundColor: '#000',
+            },
+            headerTintColor: '#000',
+            headerTitleStyle: {
+              fontSize: 25,
+            },
+          }}>
+
+          </RootStack.Navigator>
+     </NavigationContainer>
       </QueryClientProvider>
     </SafeAreaProvider>
   );
