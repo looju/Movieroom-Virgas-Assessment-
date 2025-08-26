@@ -1,6 +1,6 @@
 import axios from "axios";
 import { toSnakeCase } from "../Lib/Utils";
-import { API_KEY } from '@env';
+import { API_KEY } from "@env"
 
 export const fetchPopularMovies = async () => {
   const { data } = await axios.get(
