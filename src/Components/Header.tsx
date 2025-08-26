@@ -3,6 +3,7 @@ import { useWatchlistStore } from "@/src/Store/Store";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
+import { ThemedText } from "./ThemedComponent";
 
 interface HeaderProps {
   title: string;
@@ -24,7 +25,7 @@ const Header = ({ title, itemMovie, movieExists }: HeaderProps) => {
           resizeMode="contain"
         />
       </TouchableOpacity>
-      <ThemedText className="text-white text-xl font-poppins-semibold text-center">
+      <ThemedText className="text-xl font-poppins-semibold text-center">
         {title}
       </ThemedText>
       <TouchableOpacity

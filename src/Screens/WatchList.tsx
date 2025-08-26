@@ -12,11 +12,15 @@ import {
 import { useWatchlistStore } from "../Store/Store";
 import { ThemedSafeAreaView, ThemedText } from "../Components/ThemedComponent";
 import { images } from "../Constants/Constants";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "@/types";
+import { useNavigation } from "@react-navigation/native";
 
+
+type NavigationProp = NativeStackNavigationProp<RootStackParamList,"Movie">;
 const WatchList = () => {
-  
   const { movies } = useWatchlistStore();
-  
+  const navigation=useNavigation<NavigationProp>()
   return (
     <ThemedSafeAreaView className="flex-1 bg-dark">
       <View className="flex flex-row items-center justify-center py-5 px-5">
@@ -56,7 +60,7 @@ const WatchList = () => {
           renderItem={({ item }) => (
             <Pressable
               className="w-[32%] flex flex-col"
-              onPress={() => router.push(`/movie/${item.id}`)}
+              onPress={() =>navigation?.navigate("Movie",{id:item?.id})}
             >
               <View className="w-[100px] h-[145px] relative">
                 <Image

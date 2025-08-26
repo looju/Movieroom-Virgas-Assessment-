@@ -33,6 +33,7 @@ import HeaderSearch from "../Components/HeaderSearch";
 import { Colors, images } from "../Constants/Constants";
 import { AnimatedFlatlist, AnimatedPressable } from "../Components/AnimatedComponents";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { useSearch } from "../Hooks/useMovies";
 
 
 type SearchProp = RouteProp<RootStackParamList,"Search">;
@@ -41,7 +42,7 @@ const Search = () => {
   const route=useRoute<SearchProp>()
   const {query}=route?.params
   const dark = useWatchlistStore((state) => state?.darkTheme);
-const navigation=useNavigation<NavigationProp>()
+  const navigation=useNavigation<NavigationProp>()
   const { data: movies, isLoading } = useSearch(query ?? "");
   return (
     <ThemedSafeAreaView className="flex-1 bg-dark">

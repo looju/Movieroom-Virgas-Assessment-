@@ -3,8 +3,9 @@ import {
   fetchMovieDetails,
   fetchMovies,
   fetchSearchMovies,
-} from "@/api/movies";
+} from "@/src/Api/Service";
 import { useQuery } from "@tanstack/react-query";
+import { fetchPopularMovies } from "../Api/Service";
 
 export const useMovies = (category: string) =>
   useQuery({

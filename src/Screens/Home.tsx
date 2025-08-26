@@ -14,6 +14,7 @@ import PopularMovies from "../Components/PopularMovies";
 import CategoriesList from "../Components/CategoriesList";
 import MovieGrid from "./MovieGrid";
 import { AnimatedThemedSafeArea } from "../Components/AnimatedComponents";
+import { useMovies, usePopularMovies } from "../Hooks/useMovies";
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("Now playing");

@@ -17,20 +17,24 @@ import {
 } from "react-native-reanimated";
 import { useWatchlistStore } from "../Store/Store";
 import { AnimatedFlatlist, AnimatedPressable } from "../Components/AnimatedComponents";
-import { useNavigation } from "@react-navigation/native";
-import { RootStackScreenProps } from "@/types";
+import {  useNavigation } from "@react-navigation/native";
+import { RootStackParamList, RootStackScreenProps } from "@/types";
+import { ThemedText } from "../Components/ThemedComponent";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 
  type Props = RootStackScreenProps<"Movie">;
+ type NavigationProp = NativeStackNavigationProp<RootStackParamList,"Movie">;
+
 const MovieGrid:FunctionComponent<Props> = ({ movies }: { movies: Array<any> }) => {
   const dark = useWatchlistStore((state) => state?.darkTheme);
-  const navigation=useNavigation()
   const Movies = Array.from({ length: 20 }).map((c, i) => ({
     id: i,
     image: "https://picsum.photos/200/300",
     title: "Superman",
   }));
  
+  const navigation=useNavigation<NavigationProp>()
   return (
     <>  
       <AnimatedFlatlist
@@ -46,7 +50,7 @@ const MovieGrid:FunctionComponent<Props> = ({ movies }: { movies: Array<any> }) 
         renderItem={({ item }: { item: any }) => (
           <AnimatedPressable
             className="w-[40%] flex flex-col justify-center items-center"
-            onPress={() => router.push(`/movie/${item.id}`)}
+           onPress={() =>navigation?.navigate("Movie",{id:item?.id})}
           >
             <View className="w-[150px] h-[185px] relative">
               <Image
