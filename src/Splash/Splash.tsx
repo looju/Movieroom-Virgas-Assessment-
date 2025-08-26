@@ -1,15 +1,15 @@
+import { useNavigation } from '@react-navigation/native';
 import React, {useEffect} from 'react';
 import {View, StyleSheet, Text, Image, ActivityIndicator} from 'react-native';
 import Animated, { Easing, FadeInRight, LightSpeedInRight } from 'react-native-reanimated';
-import {useFonts, Arizonia_400Regular} from '@expo-google-fonts/dev';
 
-export default function Splash({navigation}) {
+export default function Splash() {
+  const navigation=useNavigation()
   useEffect(() => {
     setTimeout(() => {
       navigation.replace('My Tasks');
     }, 3000);
   }, []);
-
 
     return (
       <View style={styles.body}>
