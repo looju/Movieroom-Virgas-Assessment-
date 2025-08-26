@@ -17,6 +17,8 @@ import { QueryClientProvider,QueryClient } from '@tanstack/react-query';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { Tabs } from './src/Navigation/Navigation';
+import MovieDetails from './src/Screens/MovieDetails';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -25,9 +27,9 @@ function App() {
 
   return (
     <SafeAreaProvider>
-      <QueryClientProvider client={queryClient}>
-     <NavigationContainer>
-  <RootStack.Navigator
+    <QueryClientProvider client={queryClient}>
+    <NavigationContainer>
+    <RootStack.Navigator
           initialRouteName="index"
           screenOptions={{
             headerTitleAlign: 'center',
@@ -39,10 +41,11 @@ function App() {
               fontSize: 25,
             },
           }}>
-
-          </RootStack.Navigator>
+     <RootStack.Screen name="HomeTabs" component={Tabs} options={{headerShown:false}}/>
+     <RootStack.Screen name="movieDetails" component={MovieDetails} options={{headerShown:false}}/>
+     </RootStack.Navigator>
      </NavigationContainer>
-      </QueryClientProvider>
+     </QueryClientProvider>
     </SafeAreaProvider>
   );
 }
