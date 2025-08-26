@@ -20,7 +20,8 @@
       ],
       "@screens/*": [
         "src/screens/*"
-      ]
+      ],
+       "typeRoots": ["./@types", "./node_modules/@types"]
     }
   }
 }
