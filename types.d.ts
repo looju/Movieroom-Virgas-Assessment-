@@ -1,7 +1,11 @@
 export type RootStackParamList = {
    Movie:{
        id:string
- }
+ },
+ Search:{
+    query:string
+ },
+ 
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
