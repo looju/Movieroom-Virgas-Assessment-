@@ -3,7 +3,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 # Getting Started
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
-> **Note**:You need an API key from tmdb to run this project. Get one at:[TMDB](https://developer.themoviedb.org/reference/intro/getting-started) before proceeding
+>Also, you need an API key from tmdb to run this project. Get one at:[TMDB](https://developer.themoviedb.org/reference/intro/getting-started) before proceeding
 
 ## Step 1: Start Metro
 
