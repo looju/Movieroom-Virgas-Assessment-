@@ -1,5 +1,6 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { createJSONStorage, persist } from "zustand/middleware";
+import { ZustandStorage } from './StorageSys';
 
 type WatchlistState = {
   movies: any[];
@@ -26,6 +27,7 @@ export const useWatchlistStore = create<WatchlistState>()(
     }),
     {
       name: "watchlist-storage",
+      storage:createJSONStorage(()=>ZustandStorage)
     }
   )
 );
