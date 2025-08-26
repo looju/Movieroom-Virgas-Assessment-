@@ -1,7 +1,5 @@
 import React, {useEffect} from 'react';
 import {View, StyleSheet, Text, Image, ActivityIndicator} from 'react-native';
-import PushNotification from 'react-native-push-notification';
-import GlobalStyle from '../utils/GlobalStyle';
 import Animated, { Easing, FadeInRight, LightSpeedInRight } from 'react-native-reanimated';
 import {useFonts, Arizonia_400Regular} from '@expo-google-fonts/dev';
 
