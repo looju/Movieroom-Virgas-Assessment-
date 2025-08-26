@@ -21,6 +21,8 @@ import {  useNavigation } from "@react-navigation/native";
 import { RootStackParamList, RootStackScreenProps } from "@/types";
 import { ThemedText } from "../Components/ThemedComponent";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import PopularMovies from "../Components/PopularMovies";
+import { usePopularMovies } from "../Hooks/useMovies";
 
 
  type Props = RootStackScreenProps<"Movie">;
@@ -33,6 +35,7 @@ const MovieGrid:FunctionComponent<Props> = ({ movies }: { movies: Array<any> }) 
     image: "https://picsum.photos/200/300",
     title: "Superman",
   }));
+   const { data: popularMovies, isLoading, isError, error } = usePopularMovies();
  
   const navigation=useNavigation<NavigationProp>()
   return (
@@ -43,10 +46,11 @@ const MovieGrid:FunctionComponent<Props> = ({ movies }: { movies: Array<any> }) 
           .randomDelay()
           .reduceMotion(ReduceMotion.Never)}
         layout={LinearTransition.duration(1200)}
-        contentContainerClassName="flex flex-col pb-[480px]"
+        contentContainerClassName="flex flex-col pb-[550px]"
         columnWrapperClassName="flex flex-row mb-5 gap-12 items-center w-[100%] justify-center"
         numColumns={2}
         showsVerticalScrollIndicator={false}
+         ListFooterComponent={<PopularMovies popularMovies={popularMovies} />}
         renderItem={({ item }: { item: any }) => (
           <AnimatedPressable
             className="w-[40%] flex flex-col justify-center items-center"
