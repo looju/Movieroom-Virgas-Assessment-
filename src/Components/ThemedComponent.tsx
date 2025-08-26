@@ -1,5 +1,4 @@
 import {
-  SafeAreaView,
   ScrollView,
   ScrollViewProps,
   StyleProp,
@@ -12,7 +11,7 @@ import {
   ViewStyle,
 } from "react-native";
 import React from "react";
-import { SafeAreaViewProps } from "react-native-safe-area-context";
+import { SafeAreaView, SafeAreaViewProps } from "react-native-safe-area-context";
 import { useWatchlistStore } from "../Store/Store";
 import { Colors } from "../Constants/Constants";
 
